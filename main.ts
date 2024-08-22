@@ -198,6 +198,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     sprites.destroy(otherSprite)
     info.changeLifeBy(-1)
 })
+let LevelNum = 0
 let enemy_shot: Sprite = null
 let Enemy1: Sprite = null
 let Cannons3: Sprite = null
@@ -214,6 +215,9 @@ info.setLife(3)
 game.onUpdate(function () {
     if (CannonHP <= 0) {
         game.gameOver(false)
+    }
+    if (info.score() % 5 == 0) {
+        LevelNum += 1
     }
 })
 game.onUpdateInterval(1000, function () {
